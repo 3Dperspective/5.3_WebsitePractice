@@ -1,0 +1,70 @@
+@font-face {
+  font-family: Jersey10;
+  src: url(../fonts/Jersey10-Regular.ttf);
+}
+
+/*Background and Font Color*/
+body{
+    background-color: rgb(65, 65, 65); color: white"
+}
+
+/*Main Content*/
+h1 {
+    color: rgb(255, 255, 255);
+    font-family: Jersey10, sans-serif;
+    text-align: center;
+    font-size: 80px
+}
+h2 {
+    color:white;
+    font-family: Calibri, sans-serif;
+    font-style:bold;
+    font-size:30px;
+    text-align: center;
+}
+h3 {
+   color:white;
+    font-family: Calibri, sans-serif;
+    font-style:italic;
+    font-size:30px;
+    text-align: center;
+}
+p {
+   font-size: 40px;
+   font-family: Calibri, sans-serif; 
+   margin: 50px;
+   color: white;
+}
+
+a:link {
+      color: rgb(255, 255, 255); /* Or any other color name or hexadecimal value */
+}
+
+img.largeimage {
+    float:right;
+    margin-right: 10%;
+    width:30%;
+    height:30%;
+}
+
+/*Image Borders*/
+.images {
+    border-style:solid;
+    border-color: rgb(86, 120, 150);
+    border-width: 10px;
+    border-radius: 20px;
+    max-width: 100%;
+}
+
+/*Tiny Sans Formatting*/
+.sanstext {
+    font-family: Comic Sans MS, sans-serif;
+    font-size:15px;
+    color:white;
+    margin-right: auto;
+}
+.sans {
+    margin-top:600px; text-align:right; margin-right:10px;
+}
+
+
