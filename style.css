@@ -1,71 +1,324 @@
-@font-face {
-  font-family: Jersey10;
-  src: url(fonts/Jersey10-Regular.ttf);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: large;
+  color: rgb(255, 255, 255);
 }
 
-/*Background and Font Color*/
-body{
-    background-color: rgb(65, 65, 65); color: white"
-}
-
-/*Main Content*/
 h1 {
-    color: rgb(255, 255, 255);
-    font-family: Jersey10, sans-serif;
-    text-align: center;
-    font-size: 80px
+  color: white;
+  text-align: center;
+  font-size: 3rem;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  padding-top: 30vh;
+  padding-bottom: 20vh;
 }
+
 h2 {
-    color:white;
-    font-family: Calibri, sans-serif;
-    font-style:bold;
-    font-size:30px;
-    text-align: center;
-}
-h3 {
-   color:white;
-    font-family: Calibri, sans-serif;
-    font-style:italic;
-    font-size:30px;
-    text-align: center;
-}
-p {
-   font-size: 40px;
-   font-family: Calibri, sans-serif; 
-   margin: 50px;
-   color: white;
+  font-size: 4rem;
+  padding-top: 8vh;
 }
 
-a:link {
-      color: rgb(255, 255, 255); /* Or any other color name or hexadecimal value */
+.content {
+  font-size: large;
+  text-align: center;
+  padding-top: 4%;
+  min-height: 150vh;
+  background-image:      
+  linear-gradient(to bottom, rgb(0, 0, 140), rgb(0, 140, 255));  
 }
 
-img.largeimage {
-    float:right;
-    margin-right: 10%;
-    width:30%;
-    height:30%;
+.logo {
+  height: 10vh;
 }
 
-/*Image Borders*/
-.images {
-    border-style:solid;
-    border-color: rgb(86, 120, 150);
-    border-width: 10px;
-    border-radius: 20px;
-    max-width: 100%;
+.nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: 
+      linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 225, 255, 0.4)),      
+      linear-gradient(to left, rgba(0, 0, 140), rgba(0, 140, 255));
+    height: 15vh;
+    width: 100%;
+    z-index: 100;
+    top: 0; left:0; 
 }
 
-/*Tiny Sans Formatting*/
-.sanstext {
-    font-family: Comic Sans MS, sans-serif;
-    font-size:15px;
-    color:white;
-    margin-right: auto;
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(1rem, 4vw, 5rem); /* scales smoothly when zooming */
+  font-size: clamp(1rem, 1.2vw, 1.4rem); /* text scales proportionally */
+  height: 100%; /* match the logo’s vertical alignment */
+  padding-right: 4vw; /* keep spacing from right edge */
 }
-.sans {
-    margin-top:600px; text-align:right; margin-right:10px;
+
+.nav-links a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
 }
 
+a:hover {
+  color: rgb(45 210 190); /* Color of the link */
+  text-decoration: underline;
+}
 
+.bg {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  color: white;
+}
 
+.commissionsBg {
+  background-image: url(img/Yeeps3DHeartAttack.png);
+  position: relative;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  background-position: right 0px top 15vh;
+  background-size: 100vw 50vh;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+.portfolioButton {
+  width: 18vw;
+  float: left;
+  margin-top: 25vh;
+  margin-left: 20vw;
+  border-radius: 65px;
+  border: 5px, solid rgba(255, 255, 255, 0);
+}
+
+.portfolioButton:hover {
+  border: 5px, solid, rgb(255, 255, 255);
+}
+.yt-videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.yt-videos iframe {
+  max-width: 550px;
+  width: 550px;
+  height: 300px;
+  border-radius: 15px;
+}
+
+/* Portfolio Gallery */
+.gallery img {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  max-width: 400px;
+  width: 400px;
+  height: auto;
+  border: none;
+  border-radius: 10px;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.imagePreview {
+  width: 20vw;
+  float: right;
+  margin-top: 15vh;
+  margin-right: 20vw;
+  border-radius: 20px;
+  border: 10px, solid, aqua;
+}
+
+/* Image Modal Styling */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 200;
+  padding-top: 60px;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(48, 48, 48, 0.8);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: rgb(122, 122, 122);
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#imgCaption {
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+input {
+  width: 300px;
+  height: 40px;
+  font-size: 16px; /* Adjust font size accordingly */
+  border-radius: 10px;
+}
+
+.backgroundElement {
+  position: fixed;
+  left: 50vw;
+  top: 40vh;
+  bottom: 0;
+  z-index: -10;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  max-width: 120vw;
+}
+
+.description {
+  width: 400px;
+  height: 150px;
+  font-size: 16px;
+  resize: vertical;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+button {
+  background-image: linear-gradient(to top, rgb(79, 18, 179), rgb(165, 84, 202));
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 5px solid rgb(45, 0, 170);
+
+}
+button:hover {
+  background-image: linear-gradient(to bottom, rgb(79, 18, 179), rgb(165, 84, 202));
+    border: 5px solid white;
+}
+
+.box {
+  width: 50vw;
+  padding: 5%;
+  border: double 5px transparent;
+  border-radius: 32px;
+  background-color: rgb(0, 25, 85);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  position: relative;
+}
+
+.pfpImage {
+  width: 30vw;
+  display: flex;
+  float: right;
+  border-radius: 10%;
+  margin-top: 30vh;
+  margin-right: 5vw;
+}
+
+footer {
+  margin-top: 40%;
+  align-items: center;
+  display: flex;
+  background-color: rgb(7, 2, 80);
+}
+
+.lang-toggle-wrapper {
+  display: flex;
+  margin-top: 500px;
+  align-items: center;
+}
+
+#lang-toggle {
+  display: inline-block;
+  background-image: linear-gradient(to top, rgb(79, 18, 179), rgb(165, 84, 202));
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  text-decoration: none;
+  border: 5px solid rgb(45, 0, 170);
+}
+
+#lang-toggle:hover {
+  background-image: linear-gradient(to bottom, rgb(79, 18, 179), rgb(165, 84, 202));
+  border: 5px solid white;
+}
+
+/*Japanese version specific*/
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+html[lang="ja"] body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans JP', 'Yu Gothic', 'Meiryo', sans-serif;
+  font-weight: 400;
+  line-height: 1.6; /* optional: better readability for Japanese text */
+}
+
+html[lang="ja"], html[lang="ja"] h1 {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+
+/* Mobile / small screen layout */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;      /* stack logo and links */
+    align-items: center;         /* center horizontally */
+    height: auto;                /* let it grow */
+    padding: 1rem 0;
+  }
+
+  .nav-links {
+    flex-direction: column;      /* stack links vertically */
+    gap: 1rem;                   /* smaller gap for stacked links */
+    padding-right: 0;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;           /* adjust font size for mobile */
+  }
+
+  .logo {
+    height: 80px;                /* shrink logo a bit if needed */
+    margin-bottom: 0.5rem;
+  }
+}
